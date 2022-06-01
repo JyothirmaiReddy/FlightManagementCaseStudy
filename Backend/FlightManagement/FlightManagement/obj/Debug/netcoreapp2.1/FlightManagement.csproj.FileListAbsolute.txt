@@ -1,0 +1,17 @@
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\FlightManagement.deps.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\FlightManagement.runtimeconfig.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\FlightManagement.runtimeconfig.dev.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\FlightManagement.dll
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\FlightManagement.pdb
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.csproj.AssemblyReference.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.AssemblyInfoInputs.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.AssemblyInfo.cs
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.RazorAssemblyInfo.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.RazorAssemblyInfo.cs
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.RazorTargetAssemblyInfo.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.dll
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.pdb
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\obj\Debug\netcoreapp2.1\FlightManagement.genruntimeconfig.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\FlightManagement\bin\Debug\netcoreapp2.1\Configuration.json

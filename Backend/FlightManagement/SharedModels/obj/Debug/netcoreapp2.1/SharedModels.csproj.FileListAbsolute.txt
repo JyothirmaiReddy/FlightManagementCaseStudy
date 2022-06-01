@@ -1,0 +1,16 @@
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\bin\Debug\netcoreapp2.1\SharedModels.deps.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\bin\Debug\netcoreapp2.1\SharedModels.runtimeconfig.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\bin\Debug\netcoreapp2.1\SharedModels.runtimeconfig.dev.json
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\bin\Debug\netcoreapp2.1\SharedModels.dll
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\bin\Debug\netcoreapp2.1\SharedModels.pdb
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.csproj.AssemblyReference.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.AssemblyInfoInputs.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.AssemblyInfo.cs
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.RazorAssemblyInfo.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.RazorAssemblyInfo.cs
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.RazorTargetAssemblyInfo.cache
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.dll
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.pdb
+C:\Users\cogdotnet47\source\repos\FlightManagement\SharedModels\obj\Debug\netcoreapp2.1\SharedModels.genruntimeconfig.cache
