@@ -19,7 +19,7 @@ namespace AirLineAPIService.Controllers
         }
        
         [HttpGet]
-        //[Route("SearchAirline")]
+        [Route("SearchAirline")]
         public ActionResult<IEnumerable<Airline>> GetAllAirlines()
         {
             return Ok(airlinerepository.GetAirlines());
@@ -35,8 +35,8 @@ namespace AirLineAPIService.Controllers
             return Ok();
         }
 
-        [HttpPut("{airlineno:int}")]
-        //[Route("Block")]
+        [HttpPut]
+        [Route("Block")]
         public ActionResult Block(int airlineno)
         {
             var res = airlinerepository.GetAirlinebyNumber(airlineno);
@@ -45,14 +45,14 @@ namespace AirLineAPIService.Controllers
                 return NotFound("No such Airline exists");
             }
             airlinerepository.BlockAirline(airlineno);
-            return Ok("Airline Blocked");
+            return Ok();
         }
 
       
 
         
-        [HttpDelete("{airlinenumber:int}")]
-        //[Route("Delete")]
+        [HttpDelete]
+        [Route("Delete")]
         public ActionResult Delete(int airlinenumber)
         {
             var airlinetodelete = airlinerepository.GetAirlinebyNumber(airlinenumber);

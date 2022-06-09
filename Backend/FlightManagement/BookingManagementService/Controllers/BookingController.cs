@@ -23,14 +23,23 @@ namespace BookingManagementService.Controllers
         {
             bookingrepository.AddBooking(bookflight);
         }
-        [HttpDelete("{Email}")]
-        //[Route("CancelBooking")]
-        public void CancelBookingByEmailID(string Email)
+        [HttpDelete()]
+        [Route("CancelBooking")]
+        public ActionResult CancelBookingByEmailID(string Email)
         {
-            bookingrepository.CancelBookingByEmail(Email);
+            var res = bookingrepository.CancelBookingByEmail(Email);
+            if (res == 1)
+                return Ok("Booking Cancelled");
+            if (res == 2)
+                return NotFound("No booking exists to cancel");
+            if (res == -1)
+                return BadRequest("Can't Cancel Outdated booking");
+            if(res ==0)
+                ModelState.AddModelError("Booking", "Can't Cancel booking when there is less than 24 hrs time for the flight");
+                return BadRequest(ModelState);
         }
-        [HttpGet("{email}")]
-        //[Route("GetBookingbyEmail")]
+        [HttpGet]
+        [Route("GetBookingbyEmail")]
         public ActionResult<IEnumerable<TicketDetailTbl>> GetBookingByEmailID(string email)
         {
             var data = bookingrepository.GetBookingByEmail(email);
@@ -40,8 +49,8 @@ namespace BookingManagementService.Controllers
 
         }
 
-        [HttpGet("{PNR}")]
-        //[Route("GetBookingbyPNR")]
+        [HttpGet]
+        [Route("GetBookingbyPNR")]
         public ActionResult<IEnumerable<TicketDetailTbl>> GetBookingByPNR(string PNR)
         {
             var data = bookingrepository.GetBookingDetailByPNR(PNR);

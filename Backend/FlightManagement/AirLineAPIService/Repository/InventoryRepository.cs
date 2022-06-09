@@ -30,15 +30,17 @@ namespace AirLineAPIService.Repository
         public IEnumerable<FlightSearch> GetFlights(string FromPlace, string ToPlace, bool IsOneway, bool IsRoundTrip)
         {
             List<FlightSearch> res = new List<FlightSearch>();
-            var ListOfFlights = context.Inventories.Where(e => e.Fromplace == FromPlace && e.Toplace == ToPlace).ToList();
-            FlightSearch temp = new FlightSearch();
+            var ListOfFlights = context.Inventories.Where(e => e.Fromplace == FromPlace && e.Toplace == ToPlace&& e.Airlines.IsBlocked==false).ToList();
             if (ListOfFlights.Count > 0)
             {
                 foreach (var data in ListOfFlights)
                 {
+                    FlightSearch temp = new FlightSearch();
                     temp.FromPlace = data.Fromplace;
                     temp.ToPlace = data.Toplace;
                     temp.FlightNo = data.FlightNumber;
+                    temp.startTime = data.startDatetime;
+                    temp.endTime = data.EndDatetime;
                     //temp.AirlineName = data.Airlines.airlineLogo;
                     if (IsOneway)
                         temp.TicketCost = data.ticketCost;

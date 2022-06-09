@@ -14,8 +14,10 @@ namespace BookingManagementService.Models
 
         public int userid { get; set; }
         public int FlightNumber { get; set; }
-       /* [ForeignKey("FlightNumber")]
-        public Inventory Inventories { get; set; }*/
+        public DateTime startingTime { get; set; }
+        public DateTime endingTime { get; set; }
+        /* [ForeignKey("FlightNumber")]
+         public Inventory Inventories { get; set; }*/
         public string passengerName { get; set; }
         public int passengerAge { get; set; }
         public gender passengerGender { get; set; }

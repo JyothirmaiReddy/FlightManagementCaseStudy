@@ -10,7 +10,7 @@ namespace BookingManagementService.Repository
     {
         string AddBooking(BookFlightTbl obj);
         IEnumerable<TicketDetailTbl> GetBookingByEmail(string emailid);
-        void CancelBookingByEmail(string emailid);
+        int  CancelBookingByEmail(string emailid);
         IEnumerable<TicketDetailTbl> GetBookingDetailByPNR(string PNR);
     }
 }

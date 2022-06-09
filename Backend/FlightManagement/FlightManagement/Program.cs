@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,8 @@ namespace FlightManagement
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
-            IWebHostBuilder builder = new WebHostBuilder();
+            CreateWebHostBuilder(args).Build().Run();
+            /*IWebHostBuilder builder = new WebHostBuilder();
             builder.ConfigureServices(s =>
             {
                 s.AddSingleton(builder);
@@ -26,11 +27,22 @@ namespace FlightManagement
                     .UseStartup<Startup>()
                     .UseUrls("http://localhost:8000");
             var host = builder.Build();
-            host.Run();
+            host.Run();*/
         }
 
-        /*public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();*/
+        public static IHostBuilder CreateWebHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webbuilder =>
+                    {
+                        webbuilder.UseStartup<Startup>();
+                    })
+                    .ConfigureAppConfiguration((hostingcontext, config) =>
+                    {
+                        config
+                        .SetBasePath(hostingcontext.HostingEnvironment.ContentRootPath)
+                        .AddJsonFile("Configuration.json", optional: false, reloadOnChange: true);
+                    });
+                      
+                
     }
 }

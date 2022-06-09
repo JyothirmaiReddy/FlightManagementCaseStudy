@@ -10,6 +10,9 @@ namespace BookingManagementService.Models
         public int FlightNo { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public  DateTime Stime { get; set; }
+
+        public DateTime Etime { get; set; }
         public PassengerDetailTbl[] passengers { get; set; }
     }
 }

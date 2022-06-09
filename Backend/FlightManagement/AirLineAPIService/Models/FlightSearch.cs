@@ -10,6 +10,8 @@ namespace AirLineAPIService.Models
         public int FlightNo { get; set; }
         public string FromPlace { get; set; }
         public string ToPlace { get; set; }
+        public DateTime startTime { get; set; }
+        public DateTime endTime { get; set; }
         public int TicketCost { get; set; }
        // public string AirlineName { get; set; }
     }
