@@ -1,0 +1,10 @@
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\bin\Debug\netcoreapp3.1\RabbitMQ.deps.json
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\bin\Debug\netcoreapp3.1\RabbitMQ.dll
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\bin\Debug\netcoreapp3.1\RabbitMQ.pdb
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.csproj.AssemblyReference.cache
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.AssemblyInfoInputs.cache
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.AssemblyInfo.cs
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.csproj.CoreCompileInputs.cache
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.dll
+D:\GitFlight\Backend\FlightManagement\RabbitMQ\obj\Debug\netcoreapp3.1\RabbitMQ.pdb

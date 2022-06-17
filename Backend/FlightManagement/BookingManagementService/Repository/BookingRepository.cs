@@ -28,9 +28,12 @@ namespace BookingManagementService.Repository
                  data.passengerAge = temp.Age;
                 data.passengerName = temp.Name;
                 data.passengerGender = temp.Gender;
+                data.ticketClass = temp.ticketClass;
                 data.Email = obj.Email;
                 data.startingTime = obj.Stime;
                 data.endingTime = obj.Etime;
+                data.Source = obj.Source;
+                data.Destination = obj.Destination;
                 data.PNR = pnr;
                 context.TicketDetailTbl.Add(data);
              }
@@ -42,7 +45,7 @@ namespace BookingManagementService.Repository
         
         public int  CancelBookingByEmail(string emailid)
         {
-            var res = context.TicketDetailTbl.Where(t => t.Email == emailid).ToList();
+            var res = context.TicketDetailTbl.Where(t => t.PNR == emailid).ToList();
             if(res.Count > 0)
             {
                 foreach(var temp in res)
@@ -73,7 +76,7 @@ namespace BookingManagementService.Repository
 
         public IEnumerable<TicketDetailTbl> GetBookingDetailByPNR(string PNR)
         {
-            var res = context.TicketDetailTbl.Where(t => t.PNR == PNR).ToList();
+            var res = context.TicketDetailTbl.Where(t => t.PNR == PNR).ToList();                                        
             return res;
         }
     }

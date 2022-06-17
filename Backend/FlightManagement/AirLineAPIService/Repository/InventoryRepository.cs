@@ -1,5 +1,7 @@
 ﻿using AirLineAPIService.DbContext;
 using AirLineAPIService.Models;
+using MassTransit;
+using RabbitMQ;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AirLineAPIService.Repository
 {
-    public class InventoryRepository : IInventoryRepository
+    public class InventoryRepository : IInventoryRepository,IConsumer<RMQData>
     {
         private readonly AppDbContext context;
 
@@ -25,6 +27,16 @@ namespace AirLineAPIService.Repository
                 return true;
             }
             return false;
+        }
+
+        public async Task Consume(ConsumeContext<RMQData> contextmq)
+        {
+            int flightNo = contextmq.Message.flightNumber;
+            var inventory = context.Inventories.Find(flightNo);
+            inventory.BusinessSeats = inventory.BusinessSeats - contextmq.Message.businessSeats;
+            inventory.NonBusinessSeats = inventory.NonBusinessSeats - contextmq.Message.nonbusinessSeats;
+            context.Entry(inventory).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
         public IEnumerable<FlightSearch> GetFlights(string FromPlace, string ToPlace, bool IsOneway, bool IsRoundTrip)

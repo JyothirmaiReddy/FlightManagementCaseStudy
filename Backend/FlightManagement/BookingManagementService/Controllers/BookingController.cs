@@ -1,6 +1,10 @@
 ﻿using BookingManagementService.Models;
 using BookingManagementService.Repository;
+using LoginService.Models;
+using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RabbitMQ;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +14,31 @@ namespace BookingManagementService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles =UserRoles.User)]
     public class BookingController : ControllerBase
     {
         private readonly IbookingRepository bookingrepository;
-        public BookingController(IbookingRepository bookingrepository)
+        private readonly IBus _bus;
+        public BookingController(IbookingRepository bookingrepository, IBus bus)
         {
             this.bookingrepository = bookingrepository;
+            _bus = bus;
         }
         [HttpPost]
-        //[Route("Book")]
-        public void AddBooking([FromBody] BookFlightTbl bookflight)
+        [Route("Book")]
+        public async void AddBooking([FromBody] BookFlightTbl bookflight)
         {
             bookingrepository.AddBooking(bookflight);
+            int businessClassSeats = bookflight.passengers.Where(p => p.ticketClass.ToLower() == "business").Count();
+            int nonbusinessClassSeats = bookflight.passengers.Where(p => p.ticketClass.ToLower() == "nonbusiness").Count();
+            Uri uri = new Uri("rabbitmq://localhost/ticketClassQueue");
+            var endPoint = await _bus.GetSendEndpoint(uri);
+            await endPoint.Send(new RMQData
+            {
+                businessSeats = businessClassSeats,
+                nonbusinessSeats = nonbusinessClassSeats,
+                flightNumber = bookflight.FlightNo
+            });
         }
         [HttpDelete()]
         [Route("CancelBooking")]

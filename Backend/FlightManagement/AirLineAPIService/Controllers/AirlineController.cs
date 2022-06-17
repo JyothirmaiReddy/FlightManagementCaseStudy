@@ -1,5 +1,7 @@
 ﻿using AirLineAPIService.Models;
 using AirLineAPIService.Repository;
+using LoginService.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace AirLineAPIService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles =UserRoles.Admin)]
     public class AirlineController : ControllerBase
     {
         private readonly IAirlineRepository airlinerepository;
@@ -28,7 +31,7 @@ namespace AirLineAPIService.Controllers
 
      
         [HttpPost]
-        //[Route("Register")]
+        [Route("Register")]
         public ActionResult AddAirline([FromBody] Airline airline)
         {
             airlinerepository.AddAirline(airline);

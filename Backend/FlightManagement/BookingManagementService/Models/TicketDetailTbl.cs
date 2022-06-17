@@ -16,11 +16,17 @@ namespace BookingManagementService.Models
         public int FlightNumber { get; set; }
         public DateTime startingTime { get; set; }
         public DateTime endingTime { get; set; }
+
+        public string Source { get; set; }
+
+        public string Destination { get; set; }
         /* [ForeignKey("FlightNumber")]
          public Inventory Inventories { get; set; }*/
         public string passengerName { get; set; }
         public int passengerAge { get; set; }
-        public gender passengerGender { get; set; }
+        public string passengerGender { get; set; }
+
+        public string ticketClass { get; set; }
         public string  PNR { get; set; }
         public string Email { get; set; }
     }

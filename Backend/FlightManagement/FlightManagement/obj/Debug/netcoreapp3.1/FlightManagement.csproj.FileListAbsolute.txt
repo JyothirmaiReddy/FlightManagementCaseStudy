@@ -339,3 +339,11 @@ D:\GitFlight\Backend\FlightManagement\FlightManagement\obj\Debug\netcoreapp3.1\F
 D:\GitFlight\Backend\FlightManagement\FlightManagement\obj\Debug\netcoreapp3.1\FlightManagement.pdb
 D:\GitFlight\Backend\FlightManagement\FlightManagement\obj\Debug\netcoreapp3.1\FlightManagement.genruntimeconfig.cache
 D:\GitFlight\Backend\FlightManagement\FlightManagement\obj\Debug\netcoreapp3.1\FlightManagement.csproj.AssemblyReference.cache
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\appsettings.json
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\GitFlight\Backend\FlightManagement\FlightManagement\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

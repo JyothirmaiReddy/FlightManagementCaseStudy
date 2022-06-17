@@ -8,8 +8,10 @@ namespace BookingManagementService.Models
     public class PassengerDetailTbl
     {
         public string Name { get; set; }
-        public gender Gender { get; set; }
+        public string Gender { get; set; }
         public int Age { get; set; }
+
+        public string ticketClass { get; set; }
     }
     public enum gender
     { 

@@ -1,10 +1,44 @@
 {
   "Routes": [
     {
+      "DownstreamPathTemplate": "/api/Authenticate/Login",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/Login",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Authenticate/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/Register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Authenticate/Registeradmin",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/Registeradmin",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
       "DownstreamPathTemplate": "/api/airline/SearchAirline",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8001,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -12,27 +46,31 @@
         }
       ],
       "UpstreamPathTemplate": "/searchairline",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
-      "DownstreamPathTemplate": "/api/airline",
+      "DownstreamPathTemplate": "/api/airline/Register",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8001,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
           "Port": 8001
         }
       ],
-      "UpstreamPathTemplate": "/register",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamPathTemplate": "/addairline",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/airline/Delete",
       "DownstreamScheme": "http",
-      //"DownstreamPort": 8001,
-      //"DownstreamHost": "localhost",
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -40,13 +78,15 @@
         }
       ],
       "UpstreamPathTemplate": "/delete",
-      "UpstreamHttpMethod": [ "Delete" ]
+      "UpstreamHttpMethod": [ "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
-      "DownstreamPathTemplate": "/api/inventory",
+      "DownstreamPathTemplate": "/api/inventory/AddFlight",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8001,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -54,83 +94,48 @@
         }
       ],
       "UpstreamPathTemplate": "/addinventory",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+
+      }
     },
-    {
-      "DownstreamPathTemplate": "/api/airline/Block",
-      "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8001,
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8001
+      {
+        "DownstreamPathTemplate": "/api/airline/Block",
+        "DownstreamScheme": "http",
+        "DownstreamHostandPorts": [
+          {
+            "Host": "localhost",
+            "Port": 8001
+          }
+        ],
+        "UpstreamPathTemplate": "/block",
+        "UpstreamHttpMethod": [ "Put" ],
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "TestKey",
+          "AllowedScopes": []
         }
-      ],
-      "UpstreamPathTemplate": "/block",
-      "UpstreamHttpMethod": [ "Put" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/inventory/searchflight",
-      "DownstreamScheme": "http",
-     // "DownstreamHost": "localhost",
-      //"DownstreamPort": 8001,
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8001
+      },
+      {
+        "DownstreamPathTemplate": "/api/inventory/searchflight",
+        "DownstreamScheme": "http",
+        "DownstreamHostandPorts": [
+          {
+            "Host": "localhost",
+            "Port": 8001
+          }
+        ],
+        "UpstreamPathTemplate": "/searchflights",
+        "UpstreamHttpMethod": [ "Get" ],
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "TestKey",
+          "AllowedScopes": []
         }
-      ],
-      "UpstreamPathTemplate": "/searchflights",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
+      },
     {
-      "DownstreamPathTemplate": "/api/admin/AdminLogin",
+      "DownstreamPathTemplate": "/api/booking/Book",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8002,
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8002
-        }
-      ],
-      "UpstreamPathTemplate": "/adminlogin",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/user",
-      "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8002,
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8002
-        }
-      ],
-      "UpstreamPathTemplate": "/registeruser",
-      "UpstreamHttpMethod": [ "Post" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/user/Login",
-      "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8002,
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8002
-        }
-      ],
-      "UpstreamPathTemplate": "/user/Login",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/booking",
-      "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8003,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -138,13 +143,15 @@
         }
       ],
       "UpstreamPathTemplate": "/addbooking",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/booking/CancelBooking",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8003,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -152,13 +159,15 @@
         }
       ],
       "UpstreamPathTemplate": "/cancelbooking",
-      "UpstreamHttpMethod": [ "Delete" ]
+      "UpstreamHttpMethod": [ "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/booking/GetBookingbyEmail",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8003,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -166,13 +175,15 @@
         }
       ],
       "UpstreamPathTemplate": "/GetBookingByEmail",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/booking/GetBookingbyPNR",
       "DownstreamScheme": "http",
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 8003,
       "DownstreamHostandPorts": [
         {
           "Host": "localhost",
@@ -180,11 +191,15 @@
         }
       ],
       "UpstreamPathTemplate": "/GetBookingByPNR",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {
     "RequestIdKey": "OcRequestId",
     "AdministrationPath": "/administration"
   }
-}  
+}

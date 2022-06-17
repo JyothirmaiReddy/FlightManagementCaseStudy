@@ -1,5 +1,7 @@
 ﻿using AirLineAPIService.Models;
 using AirLineAPIService.Repository;
+using LoginService.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,8 +19,9 @@ namespace AirLineAPIService.Controllers
         {
             this.obj = obj;
         }
-        //[Route("AddFlight")]
+        [Route("AddFlight")]
         [HttpPost]
+        [Authorize(Roles =UserRoles.Admin)]
         public ActionResult AddInventory([FromBody] Inventory inventory)
         {
             var status = obj.AddInventory(inventory);
@@ -31,6 +34,7 @@ namespace AirLineAPIService.Controllers
 
         [HttpGet]
         [Route("searchflight")]
+        [Authorize(Roles =UserRoles.User)]
         public ActionResult<IEnumerable<FlightSearch>> GetFlights(string source,string destination,bool oneway,bool roundtrip)
         {
             var display = obj.GetFlights(source, destination, oneway, roundtrip);

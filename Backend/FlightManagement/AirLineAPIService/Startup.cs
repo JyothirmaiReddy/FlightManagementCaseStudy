@@ -1,5 +1,8 @@
-﻿using AirLineAPIService.DbContext;
+﻿using AirLineAPIService.Controllers;
+using AirLineAPIService.DbContext;
 using AirLineAPIService.Repository;
+using GreenPipes;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +12,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AirLineAPIService
@@ -28,20 +33,57 @@ namespace AirLineAPIService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<InventoryRepository> ();
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+                {
+                    //cfg.UseHealthCheck(provider);
+                    cfg.Host(new Uri("rabbitmq://localhost"), h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+                    cfg.ReceiveEndpoint("ticketClassQueue", ep =>
+                    {
+                        ep.PrefetchCount = 16;
+                        ep.UseMessageRetry(r => r.Interval(2, 100));
+                        ep.ConfigureConsumer<InventoryRepository>(provider);
+                    });
+                }));
+            });
+            services.AddMassTransitHostedService();
             services.AddControllers();
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddScoped<IAirlineRepository, AirlineRepository>();
             services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddCors();
-            //services.AddCors(options =>
-            //{
-            //    options.AddDefaultPolicy(
-            //        builder =>
-            //        {
-            //            builder.WithOrigins()
-            //        })
-            //})
+            var authenticationProviderKey = "TestKey";
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = authenticationProviderKey;
+                options.DefaultChallengeScheme = authenticationProviderKey;
+                options.DefaultScheme = authenticationProviderKey;
+                //options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(authenticationProviderKey, options =>
+            {
+                //var key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["JWT:ValidAudience"],
+                    ValidIssuer = Configuration["JWT:ValidIssuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"]))
+                };
+            });
+
 
         }
 
@@ -58,11 +100,11 @@ namespace AirLineAPIService
                 app.UseDeveloperExceptionPage();
             }
 
-            
+            app.UseAuthentication();
 
             app.UseRouting();
 
-            //app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

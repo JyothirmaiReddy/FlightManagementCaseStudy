@@ -13,6 +13,10 @@ namespace BookingManagementService.Models
         public  DateTime Stime { get; set; }
 
         public DateTime Etime { get; set; }
+
+        public string Source { get; set; }
+
+        public string Destination { get; set; }
         public PassengerDetailTbl[] passengers { get; set; }
     }
 }

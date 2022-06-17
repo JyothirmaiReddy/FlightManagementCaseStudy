@@ -15,31 +15,49 @@ namespace BookingManagementService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BookingManagementService.Models.TicketDetailTbl", b =>
                 {
                     b.Property<int>("userid")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Destination")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FlightNumber");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PNR");
+                    b.Property<int>("FlightNumber")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("endingTime");
+                    b.Property<string>("PNR")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("passengerAge");
+                    b.Property<string>("Source")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("passengerGender");
+                    b.Property<DateTime>("endingTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("passengerName");
+                    b.Property<int>("passengerAge")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("startingTime");
+                    b.Property<string>("passengerGender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("passengerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("startingTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ticketClass")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("userid");
 
